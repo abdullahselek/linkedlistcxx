@@ -6,3 +6,11 @@
 #define LINKEDLISTCXX_LINKEDLISTCXX_H
 
 #endif //LINKEDLISTCXX_LINKEDLISTCXX_H
+
+class LinkedList {
+
+public:
+    LinkedList();
+    ~LinkedList();
+
+};
