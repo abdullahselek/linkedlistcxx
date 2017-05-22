@@ -92,7 +92,6 @@ source/demo
 source/linkedlistcxx_source
 test/CMakeCache.txt
 test/CMakeFiles/
-test/CMakeLists.txt
 test/CTestTestfile.cmake
 test/Makefile
 test/cmake_install.cmake
