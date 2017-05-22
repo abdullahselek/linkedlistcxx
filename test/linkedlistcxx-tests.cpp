@@ -48,6 +48,16 @@ TEST_F(LinkedListTests, InitiateNode) {
     EXPECT_EQ(node->next, next);
 }
 
+TEST_F(LinkedListTests, IsEmpty) {
+    EXPECT_TRUE(linkedList->isEmpty());
+}
+
+TEST_F(LinkedListTests, AddFirst) {
+    Node *first = new Node("first", nullptr);
+    linkedList->addFirst(first);
+    EXPECT_FALSE(linkedList->isEmpty());
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

@@ -22,8 +22,11 @@ class LinkedList {
 public:
     LinkedList();
     ~LinkedList();
+    bool isEmpty();
+    void addFirst(Node *node);
 
-
+private:
+    Node *head;
 
 };
 
