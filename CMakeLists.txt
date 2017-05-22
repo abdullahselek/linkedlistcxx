@@ -27,3 +27,4 @@ target_link_libraries(linkedlistcxx gtest gmock_main)
 # Add test cpp file
 add_executable(tests test/linkedlistcxx-tests.cpp)
 add_test(tests tests)
+target_link_libraries(tests gtest gmock_main)
