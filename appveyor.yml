@@ -1,0 +1,32 @@
+version: '{build}'
+
+os: Visual Studio 2015
+
+environment:
+  matrix:
+  - Toolset: v140
+  - Toolset: v120
+  - Toolset: v110
+  - Toolset: v100
+
+platform:
+  - Win32
+  - x64
+
+configuration:
+  - Debug
+
+build:
+  verbosity: minimal
+
+before_build:
+- ps: |
+    cmake .
+
+build_script:
+- ps: |
+    cmake --build .
+
+test_script:
+- ps: |
+     C:\projects\linkedlistcxx\test\Debug\tests.exe --gtest_color=yes
