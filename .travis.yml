@@ -16,4 +16,5 @@ script:
 
 after_script:
  - cmake --build . --target tests
- - ctest -j8 -R tests
+ - cd test
+ - ./tests --gtest_color=yes
