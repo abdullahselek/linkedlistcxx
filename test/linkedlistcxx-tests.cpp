@@ -36,8 +36,16 @@ public:
     LinkedList *linkedList;
 };
 
-TEST_F(LinkedListTests, Initate) {
+TEST_F(LinkedListTests, Initiate) {
     EXPECT_TRUE(linkedList != NULL);
+}
+
+TEST_F(LinkedListTests, InitiateNode) {
+    Node *next = new Node("next", nullptr);
+    EXPECT_TRUE(next != nullptr);
+    Node *node = new Node("node", next);
+    EXPECT_TRUE(node != nullptr);
+    EXPECT_EQ(node->next, next);
 }
 
 int main(int argc, char **argv) {
