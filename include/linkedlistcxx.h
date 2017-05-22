@@ -5,8 +5,6 @@
 #ifndef LINKEDLISTCXX_LINKEDLISTCXX_H
 #define LINKEDLISTCXX_LINKEDLISTCXX_H
 
-#endif //LINKEDLISTCXX_LINKEDLISTCXX_H
-
 class LinkedList {
 
 public:
@@ -14,3 +12,5 @@ public:
     ~LinkedList();
 
 };
+
+#endif //LINKEDLISTCXX_LINKEDLISTCXX_H

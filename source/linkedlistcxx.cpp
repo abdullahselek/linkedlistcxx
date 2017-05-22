@@ -2,8 +2,7 @@
 // Created by Selek, Abdullah on 22.05.17.
 //
 
-#include "linkedlistcxx.h"
-
+#include "../include/linkedlistcxx.h"
 
 LinkedList::LinkedList() {
 

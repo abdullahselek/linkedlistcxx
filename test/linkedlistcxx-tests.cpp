@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "../linkedlistcxx.h"
+#include "../include/linkedlistcxx.h"
 
 class LinkedListTests : public ::testing::Test {
 
