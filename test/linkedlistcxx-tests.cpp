@@ -46,6 +46,8 @@ TEST_F(LinkedListTests, InitiateNode) {
     Node *node = new Node("node", next);
     EXPECT_TRUE(node != nullptr);
     EXPECT_EQ(node->next, next);
+    delete next;
+    delete node;
 }
 
 TEST_F(LinkedListTests, IsEmpty) {
@@ -56,6 +58,7 @@ TEST_F(LinkedListTests, AddFirst) {
     Node *first = new Node("first", nullptr);
     linkedList->addFirst(first);
     EXPECT_FALSE(linkedList->isEmpty());
+    delete first;
 }
 
 int main(int argc, char **argv) {
