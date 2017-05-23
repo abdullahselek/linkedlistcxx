@@ -2,6 +2,7 @@
 // Created by Selek, Abdullah on 22.05.17.
 //
 
+#include <string>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "../include/linkedlistcxx.h"
@@ -95,6 +96,25 @@ TEST_F(LinkedListTests, AddLast_When_ThereIsAlreadyHead) {
     ASSERT_EQ(linkedList->getLast(), last->data);
     delete last;
     delete head;
+}
+
+TEST_F(LinkedListTests, AddNode) {
+    std::string last = "last";
+    std::string head = "head";
+    linkedList->add(nullptr, head);
+    linkedList->add(linkedList->getHead(), last);
+    ASSERT_EQ(linkedList->getFirst(), head);
+    ASSERT_EQ(linkedList->getLast(), last);
+}
+
+TEST_F(LinkedListTests, Clear) {
+    std::string last = "last";
+    std::string head = "head";
+    linkedList->add(nullptr, head);
+    linkedList->add(linkedList->getHead(), last);
+    linkedList->clear();
+    ASSERT_EQ(linkedList->getFirst(), "");
+    ASSERT_EQ(linkedList->getLast(), "");
 }
 
 int main(int argc, char **argv) {

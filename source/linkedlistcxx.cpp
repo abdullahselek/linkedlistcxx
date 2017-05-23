@@ -20,6 +20,10 @@ void LinkedList::addFirst(Node *node) {
     this->head = node;
 }
 
+Node * LinkedList::getHead() {
+    return this->head;
+}
+
 std::string LinkedList::getFirst() {
     if (this->head == nullptr) {
         return "";
@@ -57,4 +61,38 @@ std::string LinkedList::getLast() {
         tmp = tmp->next;
     }
     return tmp->data;
+}
+
+void LinkedList::add(Node *head, std::string data) {
+    Node *cur;
+    Node *newNode = new Node(data, nullptr);
+    if (this->head == nullptr) {
+        this->head = newNode;
+        return;
+    }
+    cur = head;
+    while (cur) {
+        if (cur->next == nullptr) {
+            cur->next = newNode;
+            return;
+        }
+        cur = cur->next;
+    }
+}
+
+void LinkedList::clear() {
+    Node *p, *q;
+    if (this->head == nullptr) {
+        return;
+    }
+    p = this->head;
+    while (p) {
+        q = p->next;
+        delete p;
+        if (q != this->head)  {
+            this->head = nullptr;
+            return;
+        }
+        p = q;
+    }
 }

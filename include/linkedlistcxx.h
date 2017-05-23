@@ -24,10 +24,13 @@ public:
     ~LinkedList();
     bool isEmpty();
     void addFirst(Node *node);
+    Node *getHead();
     std::string getFirst();
     std::string removeFirst();
     void addLast(Node *node);
     std::string getLast();
+    void add(Node *head, std::string data);
+    void clear();
 
 private:
     Node *head;
