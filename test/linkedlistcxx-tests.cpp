@@ -117,6 +117,18 @@ TEST_F(LinkedListTests, Clear) {
     ASSERT_EQ(linkedList->getLast(), "");
 }
 
+TEST_F(LinkedListTests, SearchNode) {
+    std::string last = "last";
+    std::string head = "head";
+    std::string mid = "mid";
+    linkedList->add(nullptr, head);
+    linkedList->add(linkedList->getHead(), last);
+    linkedList->add(linkedList->getHead(), mid);
+    EXPECT_TRUE(linkedList->searchNode("mid") != nullptr);
+    linkedList->clear();
+    EXPECT_TRUE(linkedList->searchNode("mid") == nullptr);
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

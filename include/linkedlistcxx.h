@@ -6,6 +6,7 @@
 #define LINKEDLISTCXX_LINKEDLISTCXX_H
 
 #include <string>
+#include <iostream>
 
 struct Node {
     std::string data;
@@ -31,6 +32,7 @@ public:
     std::string getLast();
     void add(Node *head, std::string data);
     void clear();
+    Node *searchNode(std::string data);
 
 private:
     Node *head;

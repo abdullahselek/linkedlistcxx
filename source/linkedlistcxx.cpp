@@ -96,3 +96,15 @@ void LinkedList::clear() {
         p = q;
     }
 }
+
+Node * LinkedList::searchNode(std::string data) {
+    Node *cur = this->head;
+    while (cur) {
+        if (cur->data == data) {
+            return cur;
+        }
+        cur = cur->next;
+    }
+    std::cout << "No Node " << data << " in list" << std::endl;
+    return nullptr;
+}
