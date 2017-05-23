@@ -80,6 +80,23 @@ TEST_F(LinkedListTests, RemoveFirst) {
     delete head;
 }
 
+TEST_F(LinkedListTests, AddLast_When_ThereIsNoHead) {
+    Node *last = new Node("last", nullptr);
+    linkedList->addLast(last);
+    ASSERT_EQ(linkedList->getFirst(), last->data);
+    delete last;
+}
+
+TEST_F(LinkedListTests, AddLast_When_ThereIsAlreadyHead) {
+    Node *last = new Node("last", nullptr);
+    Node *head = new Node("head", last);
+    linkedList->addFirst(head);
+    linkedList->addLast(last);
+    ASSERT_EQ(linkedList->getLast(), last->data);
+    delete last;
+    delete head;
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

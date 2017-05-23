@@ -35,3 +35,26 @@ std::string LinkedList::removeFirst() {
     this->head = head->next;
     return tmp;
 }
+
+void LinkedList::addLast(Node *node) {
+    if (this->head == nullptr) {
+        addFirst(node);
+    } else {
+        Node *tmp = head;
+        while (tmp->next != nullptr) {
+            tmp = tmp->next;
+        }
+        tmp->next = new Node(node->data, nullptr);
+    }
+}
+
+std::string LinkedList::getLast() {
+    if (this->head == nullptr) {
+        return "";
+    }
+    Node *tmp = this->head;
+    while (tmp->next != nullptr) {
+        tmp = tmp->next;
+    }
+    return tmp->data;
+}

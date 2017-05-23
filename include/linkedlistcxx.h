@@ -26,6 +26,8 @@ public:
     void addFirst(Node *node);
     std::string getFirst();
     std::string removeFirst();
+    void addLast(Node *node);
+    std::string getLast();
 
 private:
     Node *head;
