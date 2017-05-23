@@ -108,3 +108,22 @@ Node * LinkedList::searchNode(std::string data) {
     std::cout << "No Node " << data << " in list" << std::endl;
     return nullptr;
 }
+
+bool LinkedList::deleteNode(Node *node) {
+    Node *cur = this->head;
+    if (node == this->head) {
+        this->head = cur->next;
+        delete node;
+        return true;
+    }
+
+    while(cur) {
+        if(cur->next == node) {
+            cur->next = node->next;
+            delete node;
+            return true;
+        }
+        cur = cur->next;
+    }
+    return false;
+}

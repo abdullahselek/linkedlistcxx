@@ -33,6 +33,7 @@ public:
     void add(Node *head, std::string data);
     void clear();
     Node *searchNode(std::string data);
+    bool deleteNode(Node *node);
 
 private:
     Node *head;

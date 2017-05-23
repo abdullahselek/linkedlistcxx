@@ -129,6 +129,17 @@ TEST_F(LinkedListTests, SearchNode) {
     EXPECT_TRUE(linkedList->searchNode("mid") == nullptr);
 }
 
+TEST_F(LinkedListTests, DeleteNode) {
+    std::string last = "last";
+    std::string head = "head";
+    std::string mid = "mid";
+    linkedList->add(nullptr, head);
+    linkedList->add(linkedList->getHead(), last);
+    linkedList->add(linkedList->getHead(), mid);
+    Node *node = linkedList->searchNode("mid");
+    EXPECT_TRUE(linkedList->deleteNode(node));
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
