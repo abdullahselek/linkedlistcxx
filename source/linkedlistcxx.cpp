@@ -19,3 +19,19 @@ bool LinkedList::isEmpty() {
 void LinkedList::addFirst(Node *node) {
     this->head = node;
 }
+
+std::string LinkedList::getFirst() {
+    if (this->head == nullptr) {
+        return "";
+    }
+    return this->head->data;
+}
+
+std::string LinkedList::removeFirst() {
+    std::string tmp = getFirst();
+    if (tmp.empty()) {
+        return "";
+    }
+    this->head = head->next;
+    return tmp;
+}

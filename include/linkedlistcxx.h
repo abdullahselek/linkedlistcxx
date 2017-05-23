@@ -24,6 +24,8 @@ public:
     ~LinkedList();
     bool isEmpty();
     void addFirst(Node *node);
+    std::string getFirst();
+    std::string removeFirst();
 
 private:
     Node *head;

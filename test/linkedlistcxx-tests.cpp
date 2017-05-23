@@ -61,6 +61,25 @@ TEST_F(LinkedListTests, AddFirst) {
     delete first;
 }
 
+TEST_F(LinkedListTests, GetFirst) {
+    EXPECT_TRUE(linkedList->getFirst().empty());
+    Node *head = new Node("head", nullptr);
+    linkedList->addFirst(head);
+    EXPECT_FALSE(linkedList->getFirst().empty());
+    delete head;
+}
+
+TEST_F(LinkedListTests, RemoveFirst) {
+    EXPECT_TRUE(linkedList->removeFirst().empty());
+    Node *next = new Node("next", nullptr);
+    Node *head = new Node("head", next);
+    linkedList->addFirst(head);
+    EXPECT_FALSE(linkedList->getFirst().empty());
+    ASSERT_EQ(linkedList->removeFirst(), head->data);
+    delete next;
+    delete head;
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
