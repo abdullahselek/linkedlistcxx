@@ -15,6 +15,6 @@ add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
 include_directories(../source/)
 
 # Add test cpp file
-add_executable(tests linkedlistcxx-tests.cpp)
+add_executable(tests linkedlistcxx-tests.cpp linkedlistcxxint-tests.cpp main.cpp)
 target_link_libraries(tests linkedlistcxx gtest gmock_main)
 add_test(tests tests COMMAND Test)

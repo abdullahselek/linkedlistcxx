@@ -101,7 +101,7 @@ void LinkedList<T>::addLast(Node<T> *node) {
 template <typename T>
 T LinkedList<T>::getLast() {
     if (this->head == nullptr) {
-        return "";
+        return T{};
     }
     Node<T> *tmp = this->head;
     while (tmp->next != nullptr) {

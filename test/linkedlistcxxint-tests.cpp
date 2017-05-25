@@ -2,15 +2,14 @@
 // Created by Selek, Abdullah on 22.05.17.
 //
 
-#include <string>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "../include/linkedlistcxx.h"
 
-class LinkedListTests : public ::testing::Test {
+class LinkedListIntegerTests : public ::testing::Test {
 
 protected:
-    virtual ~LinkedListTests() {
+    virtual ~LinkedListIntegerTests() {
         // You can do clean-up work that doesn't throw exceptions here.
     }
 
@@ -20,7 +19,7 @@ protected:
     virtual void SetUp() {
         // Code here will be called immediately after the constructor (right
         // before each test).
-        linkedList = new LinkedList<std::string>();
+        linkedList = new LinkedList<int>();
     }
 
     virtual void TearDown() {
@@ -30,58 +29,58 @@ protected:
     }
 
 public:
-    LinkedListTests() {
-        this->linkedList = new LinkedList<std::string>();
+    LinkedListIntegerTests() {
+        this->linkedList = new LinkedList<int>();
     }
 
-    LinkedList<std::string> *linkedList;
+    LinkedList<int> *linkedList;
 };
 
-TEST_F(LinkedListTests, Initiate) {
+TEST_F(LinkedListIntegerTests, Initiate) {
     EXPECT_TRUE(linkedList != NULL);
 }
 
-TEST_F(LinkedListTests, InitiateNode) {
-    std::string strNext("next");
-    Node<std::string> *next = new Node<std::string>(strNext, nullptr);
+TEST_F(LinkedListIntegerTests, InitiateNode) {
+    int intNext = 2;
+    Node<int> *next = new Node<int>(intNext, nullptr);
     EXPECT_TRUE(next != nullptr);
-    std::string strNode("node");
-    Node<std::string> *node = new Node<std::string>(strNode, next);
+    int intNode = 1;
+    Node<int> *node = new Node<int>(intNode, next);
     EXPECT_TRUE(node != nullptr);
     EXPECT_EQ(node->next, next);
     delete next;
     delete node;
 }
 
-TEST_F(LinkedListTests, IsEmpty) {
+TEST_F(LinkedListIntegerTests, IsEmpty) {
     EXPECT_TRUE(linkedList->isEmpty());
 }
 
-TEST_F(LinkedListTests, AddFirst) {
-    std::string strFirst("first");
-    Node<std::string> *first = new Node<std::string>(strFirst, nullptr);
+TEST_F(LinkedListIntegerTests, AddFirst) {
+    int intFirst = 1;
+    Node<int> *first = new Node<int>(intFirst, nullptr);
     linkedList->addFirst(first);
     EXPECT_FALSE(linkedList->isEmpty());
     delete first;
 }
 
-TEST_F(LinkedListTests, GetFirst) {
-    std::string empty("");
+TEST_F(LinkedListIntegerTests, GetFirst) {
+    int empty = 0;
     EXPECT_TRUE(linkedList->getFirst() == empty);
-    std::string strHead("head");
-    Node<std::string> *head = new Node<std::string>(strHead, nullptr);
+    int intHead = 1;
+    Node<int> *head = new Node<int>(intHead, nullptr);
     linkedList->addFirst(head);
     EXPECT_FALSE(linkedList->getFirst() == empty);
     delete head;
 }
 
-TEST_F(LinkedListTests, RemoveFirst) {
-    std::string empty("");
+TEST_F(LinkedListIntegerTests, RemoveFirst) {
+    int empty = 0;
     EXPECT_TRUE(linkedList->removeFirst() == empty);
-    std::string strNext("next");
-    Node<std::string> *next = new Node<std::string>(strNext, nullptr);
-    std::string strHead("head");
-    Node<std::string> *head = new Node<std::string>(strHead, next);
+    int intNext = 2;
+    Node<int> *next = new Node<int>(intNext, nullptr);
+    int intHead = 1;
+    Node<int> *head = new Node<int>(intHead, next);
     linkedList->addFirst(head);
     EXPECT_FALSE(linkedList->getFirst() == empty);
     ASSERT_EQ(linkedList->removeFirst(), head->data);
@@ -89,19 +88,19 @@ TEST_F(LinkedListTests, RemoveFirst) {
     delete head;
 }
 
-TEST_F(LinkedListTests, AddLast_When_ThereIsNoHead) {
-    std::string strLast("last");
-    Node<std::string> *last = new Node<std::string>(strLast, nullptr);
+TEST_F(LinkedListIntegerTests, AddLast_When_ThereIsNoHead) {
+    int intLast = 1;
+    Node<int> *last = new Node<int>(intLast, nullptr);
     linkedList->addLast(last);
     ASSERT_EQ(linkedList->getFirst(), last->data);
     delete last;
 }
 
-TEST_F(LinkedListTests, AddLast_When_ThereIsAlreadyHead) {
-    std::string strLast("last");
-    Node<std::string> *last = new Node<std::string>(strLast, nullptr);
-    std::string strHead("head");
-    Node<std::string> *head = new Node<std::string>(strHead, last);
+TEST_F(LinkedListIntegerTests, AddLast_When_ThereIsAlreadyHead) {
+    int intLast = 2;
+    Node<int> *last = new Node<int>(intLast, nullptr);
+    int intHead = 1;
+    Node<int> *head = new Node<int>(intHead, last);
     linkedList->addFirst(head);
     linkedList->addLast(last);
     ASSERT_EQ(linkedList->getLast(), last->data);
@@ -109,29 +108,29 @@ TEST_F(LinkedListTests, AddLast_When_ThereIsAlreadyHead) {
     delete head;
 }
 
-TEST_F(LinkedListTests, AddNode) {
-    std::string last("last");
-    std::string head("head");
+TEST_F(LinkedListIntegerTests, AddNode) {
+    int last = 2;
+    int head = 1;
     linkedList->add(nullptr, head);
     linkedList->add(linkedList->getHead(), last);
     ASSERT_EQ(linkedList->getFirst(), head);
     ASSERT_EQ(linkedList->getLast(), last);
 }
 
-TEST_F(LinkedListTests, Clear) {
-    std::string last("last");
-    std::string head("head");
+TEST_F(LinkedListIntegerTests, Clear) {
+    int last = 2;
+    int head = 1;
     linkedList->add(nullptr, head);
     linkedList->add(linkedList->getHead(), last);
     linkedList->clear();
-    ASSERT_EQ(linkedList->getFirst(), "");
-    ASSERT_EQ(linkedList->getLast(), "");
+    ASSERT_EQ(linkedList->getFirst(), 0);
+    ASSERT_EQ(linkedList->getLast(), 0);
 }
 
-TEST_F(LinkedListTests, SearchNode) {
-    std::string last("last");
-    std::string head("head");
-    std::string mid("mid");
+TEST_F(LinkedListIntegerTests, SearchNode) {
+    int last = 3;
+    int head = 1;
+    int mid = 2;
     linkedList->add(nullptr, head);
     linkedList->add(linkedList->getHead(), last);
     linkedList->add(linkedList->getHead(), mid);
@@ -140,13 +139,13 @@ TEST_F(LinkedListTests, SearchNode) {
     EXPECT_TRUE(linkedList->searchNode(mid) == nullptr);
 }
 
-TEST_F(LinkedListTests, DeleteNode) {
-    std::string last("last");
-    std::string head("head");
-    std::string mid("mid");
+TEST_F(LinkedListIntegerTests, DeleteNode) {
+    int last = 3;
+    int head = 1;
+    int mid = 2;
     linkedList->add(nullptr, head);
     linkedList->add(linkedList->getHead(), last);
     linkedList->add(linkedList->getHead(), mid);
-    Node<std::string> *node = linkedList->searchNode(mid);
+    Node<int> *node = linkedList->searchNode(mid);
     EXPECT_TRUE(linkedList->deleteNode(node));
 }
