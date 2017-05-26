@@ -43,20 +43,25 @@ tests.exe --gtest_color=yes
 Initiate linkedlist as below
 
 ```
-LinkedList *linkedList = new LinkedList();
+LinkedList<std::string> *linkedList = new LinkedList<std::string>();
 ```
 
 Initiation of Node
 
 ```
-Node *next = new Node("next", nullptr);
-Node *head = new Node("node", next);
+std::string strNext("next");
+std::string strNode("node");
+
+Node<std::string> *next = new Node<std::string>(strNext, nullptr);
+Node<std::string> *node = new Node<std::string>(strNode, next);
 ```
 
 Adding first node
 
 ```
-linkedList->addFirst(head);
+std::string strFirst("first");
+Node<std::string> *first = new Node<std::string>(strFirst, nullptr);
+linkedList->addFirst(first);
 ```
 
 Getting first node's data
@@ -74,15 +79,15 @@ std::string headData = linkedList->removeFirst()
 Adding last node
 
 ```
-Node *last = new Node("last", nullptr);
-linkedList->addLast(last);
+std::string strLast("last");
+Node<std::string> *last = new Node<std::string>(strLast, nullptr);
 ```
 
 Adding data as node
 
 ```
-std::string last = "last";
-std::string head = "head";
+std::string last("last");
+std::string head("head");
 linkedList->add(nullptr, head);
 linkedList->add(linkedList->getHead(), last);
 ```
@@ -96,12 +101,14 @@ linkedList->clear();
 Searching for node data
 
 ```
-Node *foundNode = linkedList->searchNode("mid");
+std::string mid("mid");
+Node<std::string> *foundNode = linkedList->searchNode(mid);
 ```
 
 Delete node
 
 ```
-Node *node = linkedList->searchNode("mid");
+std::string mid("mid");
+Node<std::string> *node = linkedList->searchNode(mid);
 bool isDeleted = linkedList->deleteNode(node);
 ```
