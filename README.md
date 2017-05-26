@@ -1,5 +1,8 @@
 # linkedlistcxx
 
+[![Build Status](https://travis-ci.org/abdullahselek/linkedlistcxx.svg?branch=master)](https://travis-ci.org/abdullahselek/linkedlistcxx)
+[![Build status](https://ci.appveyor.com/api/projects/status/5ku2a2q2kjcvlr1u?svg=true)](https://ci.appveyor.com/project/abdullahselek/linkedlistcxx)
+
 LinkedList implementation with C++ as shared library.
 
 ## Building Repository
