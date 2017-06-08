@@ -23,19 +23,19 @@ template <typename T>
 class LinkedList {
 
 public:
-    LinkedList();
-    ~LinkedList();
-    bool isEmpty();
-    void addFirst(Node<T> *node);
-    Node<T> *getHead();
-    T getFirst();
-    T removeFirst();
-    void addLast(Node<T> *node);
-    T getLast();
-    void add(Node<T> *head, T data);
-    void clear();
-    Node<T> *searchNode(T data);
-    bool deleteNode(Node<T> *node);
+    inline LinkedList();
+    inline ~LinkedList();
+    inline bool isEmpty();
+    inline void addFirst(Node<T> *node);
+    inline Node<T> *getHead();
+    inline T getFirst();
+    inline T removeFirst();
+    inline void addLast(Node<T> *node);
+    inline T getLast();
+    inline void add(Node<T> *head, T data);
+    inline void clear();
+    inline Node<T> *searchNode(T data);
+    inline bool deleteNode(Node<T> *node);
 
 private:
     Node<T> *head;
@@ -43,32 +43,32 @@ private:
 };
 
 template <typename T>
-LinkedList<T>::LinkedList() {
+inline LinkedList<T>::LinkedList() {
     this->head = nullptr;
 }
 
 template <typename T>
-LinkedList<T>::~LinkedList() {
+inline LinkedList<T>::~LinkedList() {
 
 }
 
 template <typename T>
-bool LinkedList<T>::isEmpty() {
+inline bool LinkedList<T>::isEmpty() {
     return this->head == nullptr;
 }
 
 template <typename T>
-void LinkedList<T>::addFirst(Node<T> *node) {
+inline void LinkedList<T>::addFirst(Node<T> *node) {
     this->head = node;
 }
 
 template <typename T>
-Node<T> * LinkedList<T>::getHead() {
+inline Node<T> * LinkedList<T>::getHead() {
     return this->head;
 }
 
 template <typename T>
-T LinkedList<T>::getFirst() {
+inline T LinkedList<T>::getFirst() {
     if (this->head == nullptr) {
         return T{};
     }
@@ -76,7 +76,7 @@ T LinkedList<T>::getFirst() {
 }
 
 template <typename T>
-T LinkedList<T>::removeFirst() {
+inline T LinkedList<T>::removeFirst() {
     T tmp = getFirst();
     if (tmp == T{}) {
         return T{};
@@ -86,7 +86,7 @@ T LinkedList<T>::removeFirst() {
 }
 
 template <typename T>
-void LinkedList<T>::addLast(Node<T> *node) {
+inline void LinkedList<T>::addLast(Node<T> *node) {
     if (this->head == nullptr) {
         addFirst(node);
     } else {
@@ -99,7 +99,7 @@ void LinkedList<T>::addLast(Node<T> *node) {
 }
 
 template <typename T>
-T LinkedList<T>::getLast() {
+inline T LinkedList<T>::getLast() {
     if (this->head == nullptr) {
         return T{};
     }
@@ -111,7 +111,7 @@ T LinkedList<T>::getLast() {
 }
 
 template <typename T>
-void LinkedList<T>::add(Node<T> *head, T data) {
+inline void LinkedList<T>::add(Node<T> *head, T data) {
     Node<T> *cur;
     Node<T> *newNode = new Node<T>(data, nullptr);
     if (this->head == nullptr) {
@@ -129,7 +129,7 @@ void LinkedList<T>::add(Node<T> *head, T data) {
 }
 
 template <typename T>
-void LinkedList<T>::clear() {
+inline void LinkedList<T>::clear() {
     Node<T> *p, *q;
     if (this->head == nullptr) {
         return;
@@ -147,7 +147,7 @@ void LinkedList<T>::clear() {
 }
 
 template <typename T>
-Node<T> * LinkedList<T>::searchNode(T data) {
+inline Node<T> * LinkedList<T>::searchNode(T data) {
     Node<T> *cur = this->head;
     while (cur) {
         if (cur->data == data) {
@@ -160,7 +160,7 @@ Node<T> * LinkedList<T>::searchNode(T data) {
 }
 
 template <typename T>
-bool LinkedList<T>::deleteNode(Node<T> *node) {
+inline bool LinkedList<T>::deleteNode(Node<T> *node) {
     Node<T> *cur = this->head;
     if (node == this->head) {
         this->head = cur->next;
